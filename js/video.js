@@ -19,8 +19,7 @@ const volumeSlider = document.getElementById("slider");
 
 document.querySelector("#play").addEventListener("click", function() {
 	video.play();
-	video.volume = 1.0;
-	document.getElementById("volume").innerHTML = video.volume * 100 + "%";
+	document.getElementById("volume").innerHTML = Math.round(video.volume * 100) + "%";
 	console.log("Play Video");
 });
 
@@ -64,7 +63,7 @@ muteButton.addEventListener("click",function() {
 document.getElementById("slider").addEventListener("click",function() {
 	console.log("changing volume");
 	video.volume = this.value / 100;
-	document.getElementById("volume").innerHTML = video.volume * 100 + "%";
+	document.getElementById("volume").innerHTML = this.value + "%";
 });
 
 document.getElementById("vintage").addEventListener("click",function(){
