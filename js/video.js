@@ -15,10 +15,12 @@ const speedUpButton = document.getElementById("faster");
 const slowDownButton = document.getElementById("slower");
 const skipButton = document.getElementById("skip");
 const muteButton = document.getElementById("mute");
+const volumeSlider = document.getElementById("slider");
 
 document.querySelector("#play").addEventListener("click", function() {
 	video.play();
 	video.volume = 1.0;
+	document.getElementById("volume").innerHTML = video.volume * 100 + "%";
 	console.log("Play Video");
 });
 
@@ -58,6 +60,21 @@ muteButton.addEventListener("click",function() {
 		document.getElementById("mute").innerHTML = "Unmute";
 	}
 });
+
+document.getElementById("slider").addEventListener("click",function() {
+	console.log("changing volume");
+	video.volume = this.value / 100;
+	document.getElementById("volume").innerHTML = video.volume * 100 + "%";
+});
+
+document.getElementById("vintage").addEventListener("click",function(){
+	video.classList.add("oldSchool");
+});
+
+document.getElementById("orig").addEventListener("click",function() {
+	video.classList.remove("oldSchool");
+});
+
 
 
 
